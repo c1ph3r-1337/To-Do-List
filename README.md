@@ -1,82 +1,113 @@
-Modern TODO – GTK4 Liquid Glass Task Manager
+<div align="center">
 
-Modern TODO is a vertically optimized task manager built with Rust and GTK4.
-It is designed for Wayland compositors such as Hyprland and features a glass-style translucent interface with date-based task management.
+# Modern TODO
+### GTK4 Liquid Glass Task Manager
 
-Features
+Minimal. Vertical. Glass-styled. Built with Rust.
 
-Written in Rust (Edition 2024)
+</div>
 
-GTK4-based native Linux UI
+---
 
-Calendar-based task scheduling
+## Overview
 
-Tasks filtered by selected date
+Modern TODO is a vertically optimized task manager built using **Rust + GTK4**.  
+It features a translucent glass-style interface and integrates cleanly with Wayland compositors such as **Hyprland**.
 
-Glass-style translucent interface
+The application is designed as a floating vertical panel with date-based task management.
 
-Floating vertical layout (420x720)
+---
 
-Hyprland blur integration
+## Features
 
-Rounded corners and transparency
+- Native GTK4 desktop application
+- Calendar-based task scheduling
+- Tasks filtered by selected date
+- Glass-style translucent interface
+- Rounded corners and compositor blur support
+- JSON-based persistent storage
+- Lightweight and fast
 
-JSON-based persistent storage
+---
 
-Lightweight and fast
+## Tech Stack
 
-Preview
+| Component | Description |
+|------------|-------------|
+| Rust | Core application logic |
+| GTK4 | Native Linux UI |
+| GLib | Application runtime |
+| Serde | JSON serialization |
+| Hyprland | Blur & floating window integration |
 
-Add a screenshot inside:
+---
 
-assets/screenshot.png
-Tech Stack
+## Installation
 
-Rust
+### Clone Repository
 
-GTK4
-
-GLib
-
-Serde (JSON serialization)
-
-Hyprland (blur and window rules)
-
-Installation
-Clone Repository
+```bash
 git clone https://github.com/YOUR_USERNAME/rust_todo.git
 cd rust_todo
-Build
+```
+
+### Build
+
+```bash
 cargo build --release
-Run
+```
+
+### Run
+
+```bash
 cargo run
+```
 
-Or run compiled binary:
+Or execute compiled binary:
 
+```bash
 ./target/release/rust_todo
-Install System-wide (Optional)
+```
+
+---
+
+## Optional: Install System-wide
+
+```bash
 sudo cp target/release/rust_todo /usr/local/bin/todolist
-Desktop Entry (Rofi / Launcher)
+```
+
+---
+
+## Desktop Entry (Launcher / Rofi)
 
 Create:
 
+```
 ~/.local/share/applications/todolist.desktop
+```
 
 Add:
 
+```ini
 [Desktop Entry]
 Name=Modern TODO
-Comment=Liquid Glass Task Manager
+Comment=Glass Task Manager
 Exec=/usr/local/bin/todolist
 Icon=todolist
 Terminal=false
 Type=Application
 Categories=Utility;Productivity;
 StartupWMClass=com.todo.gtk
-Hyprland Configuration (Glass Setup)
+```
 
-Add to hyprland.conf:
+---
 
+## Hyprland Configuration (Glass Setup)
+
+Add to `hyprland.conf`:
+
+```ini
 windowrule {
     name = todo_app
     match:class = ^(com.todo.gtk)$
@@ -85,9 +116,11 @@ windowrule {
     size = 420 720
     opacity = 0.80 0.80 1
 }
+```
 
 Enable blur:
 
+```ini
 decoration {
     rounding = 24
 
@@ -98,11 +131,19 @@ decoration {
         ignore_opacity = false
     }
 }
+```
 
-Reload Hyprland:
+Reload:
 
+```bash
 hyprctl reload
-Project Structure
+```
+
+---
+
+## Project Structure
+
+```
 rust_todo/
 ├── Cargo.toml
 ├── Cargo.lock
@@ -113,41 +154,49 @@ rust_todo/
 ├── assets/
 │   └── icon.png
 └── README.md
-Data Storage
+```
 
-Tasks are stored locally in JSON format:
+---
 
+## Data Storage
+
+Tasks are stored locally:
+
+```
 ~/.rust_todo.json
-Architecture Overview
+```
 
-GTK4 handles rendering
+---
 
-Tasks stored in Vec<Task>
+## Architecture Overview
 
-State managed using Rc<RefCell<>>
+- GTK4 handles rendering
+- State managed via `Rc<RefCell<Vec<Task>>>`
+- Persistent storage via Serde JSON
+- Compositor-level blur provided by Hyprland
+- Floating vertical layout optimized for productivity
 
-Serialization handled via Serde
+---
 
-Blur handled at compositor level by Hyprland
+## Future Improvements
 
-Future Improvements
+- Drag-and-drop task ordering
+- Task categories
+- System notifications
+- SQLite backend
+- System tray integration
+- UI transitions and animations
 
-Drag and drop reordering
+---
 
-Task categories
-
-System notifications
-
-SQLite backend
-
-System tray integration
-
-UI animations and transitions
-
-License
+## License
 
 MIT License
 
-Author
+---
 
-Built with Rust and GTK4 by c1ph3r-1337
+<div align="center">
+
+Built with Rust and GTK4.
+
+</div>

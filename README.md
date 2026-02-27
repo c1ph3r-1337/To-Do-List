@@ -1,9 +1,9 @@
 <div align="center">
 
 # Modern TODO
-### GTK4 Liquid Glass Task Manager
+### Simple Minimal Task Manager
 
-Minimal. Vertical. Glass-styled. Built with Rust.
+Clean. Focused. Distraction-free. Built with Rust.
 
 </div>
 
@@ -11,22 +11,41 @@ Minimal. Vertical. Glass-styled. Built with Rust.
 
 ## Overview
 
-Modern TODO is a vertically optimized task manager built using **Rust + GTK4**.  
-It features a translucent glass-style interface and integrates cleanly with Wayland compositors such as **Hyprland**.
+<img width="1917" height="875" alt="image" src="https://github.com/user-attachments/assets/9bb8014b-bc36-444f-ab94-3aee9ab86359" />
 
-The application is designed as a floating vertical panel with date-based task management.
+Modern TODO is a simple and minimal task manager built using Rust and GTK4.
+
+It is designed for clarity and focus.  
+No unnecessary features. No visual noise.  
+Just a clean interface for managing daily tasks efficiently.
+
+The application follows a vertical layout optimized for straightforward task entry and organization.
 
 ---
 
 ## Features
 
-- Native GTK4 desktop application
-- Calendar-based task scheduling
-- Tasks filtered by selected date
-- Glass-style translucent interface
-- Rounded corners and compositor blur support
-- JSON-based persistent storage
-- Lightweight and fast
+- Simple and intuitive interface  
+- Calendar-based task organization  
+- Tasks filtered by selected date  
+- Clean minimal design  
+- Lightweight and fast  
+- Local JSON-based storage  
+- No external dependencies or accounts  
+
+---
+
+## Design Philosophy
+
+Modern TODO is built around simplicity:
+
+- Minimal visual elements  
+- Clear structure  
+- Focused task workflow  
+- No clutter or distractions  
+- Productivity-first layout  
+
+The goal is to provide a calm and efficient task management experience.
 
 ---
 
@@ -37,8 +56,7 @@ The application is designed as a floating vertical panel with date-based task ma
 | Rust | Core application logic |
 | GTK4 | Native Linux UI |
 | GLib | Application runtime |
-| Serde | JSON serialization |
-| Hyprland | Blur & floating window integration |
+| Serde | JSON persistence |
 
 ---
 
@@ -47,7 +65,7 @@ The application is designed as a floating vertical panel with date-based task ma
 ### Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/rust_todo.git
+git clone https://github.com/c1ph3r-1337/To-Do-List.git
 cd rust_todo
 ```
 
@@ -63,7 +81,7 @@ cargo build --release
 cargo run
 ```
 
-Or execute compiled binary:
+Or execute the compiled binary:
 
 ```bash
 ./target/release/rust_todo
@@ -92,51 +110,13 @@ Add:
 ```ini
 [Desktop Entry]
 Name=Modern TODO
-Comment=Glass Task Manager
+Comment=Simple Minimal Task Manager
 Exec=/usr/local/bin/todolist
 Icon=todolist
 Terminal=false
 Type=Application
 Categories=Utility;Productivity;
 StartupWMClass=com.todo.gtk
-```
-
----
-
-## Hyprland Configuration (Glass Setup)
-
-Add to `hyprland.conf`:
-
-```ini
-windowrule {
-    name = todo_app
-    match:class = ^(com.todo.gtk)$
-    float = true
-    center = true
-    size = 420 720
-    opacity = 0.80 0.80 1
-}
-```
-
-Enable blur:
-
-```ini
-decoration {
-    rounding = 24
-
-    blur {
-        enabled = true
-        size = 18
-        passes = 4
-        ignore_opacity = false
-    }
-}
-```
-
-Reload:
-
-```bash
-hyprctl reload
 ```
 
 ---
@@ -160,32 +140,31 @@ rust_todo/
 
 ## Data Storage
 
-Tasks are stored locally:
+Tasks are stored locally in:
 
 ```
 ~/.rust_todo.json
 ```
 
+All data remains on your machine.
+
 ---
 
 ## Architecture Overview
 
-- GTK4 handles rendering
-- State managed via `Rc<RefCell<Vec<Task>>>`
-- Persistent storage via Serde JSON
-- Compositor-level blur provided by Hyprland
-- Floating vertical layout optimized for productivity
+- GTK4 handles rendering  
+- State managed via `Rc<RefCell<Vec<Task>>>`  
+- Persistent storage via Serde JSON  
+- Lightweight and self-contained  
 
 ---
 
 ## Future Improvements
 
-- Drag-and-drop task ordering
-- Task categories
-- System notifications
-- SQLite backend
-- System tray integration
-- UI transitions and animations
+- Drag-and-drop reordering  
+- Task categories  
+- Search functionality  
+- Improved keyboard navigation  
 
 ---
 
@@ -197,6 +176,6 @@ MIT License
 
 <div align="center">
 
-Built with Rust and GTK4.
+Built with Rust for simplicity and focus.
 
 </div>
